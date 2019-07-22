@@ -1,0 +1,82 @@
+{
+  "title": "javascript-design-pattern-tutorial",
+  "description": "javascript 设计模式知识",
+  "author": "ruizhengyun <ruizhengyun@gmail.com>",
+  "language": "zh-hans",
+  "gitbook": "3.2.3",
+  "links": {
+    "sidebar": {
+      "我的博客": "http://ruizhengyun.cn/blog"
+    }
+  },
+  "plugins": [
+    "insert-logo",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "github",
+    
+    "chapter-fold",
+    "flexible-alerts",
+    "splitter",
+    "code",
+    "todo",
+    "emphasize",
+    "-sharing",
+    "sharing-plus",
+    "donate",
+    "auto-scroll-table",
+    "custom-favicon",
+    "lightbox",
+    "anchor-navigation-ex"
+  ],
+  "pluginsConfig": {
+    "favicon": "http://ruizhengyun.cn/tutorial/javascript-design-pattern/assets/favicon.ico",
+    "github": {
+      "url": "https://github.com/ruizhengyun/javascript-design-pattern-tutorial"
+    },
+    "insert-logo": {
+      "url": "http://ruizhengyun.cn/tutorial/javascript-design-pattern/assets/logo.png",
+      "style": "background: none; max-height: 66px; min-height: 66px"
+    },
+    "sharing": {
+      "qq": true,
+      "qzone": false,
+      "weibo": false,
+      "douban": false,
+      "all": [
+        "qq",
+        "qzone",
+        "weibo",
+        "douban"
+      ]
+    },
+    "flexible-alerts": {
+      "style": "callout",
+      "comment": {
+        "label": "Comment",
+        "icon": "fa fa-comments",
+        "className": "info"
+      }
+    },
+    "donate": {
+      "wechat": "http://ruizhengyun.cn/blog/images/sns-qrcode.jpg",
+      "title": "如果对你有用，稍稍打赏，以此鼓励吧",
+      "button": "赏作者",
+      "wechatStyle": "background-color:green;",
+      "wechatText": "微信打赏"
+    },
+    "anchor-navigation-ex": {
+      "associatedWithSummary":false,
+      "showLevel":true,
+      "multipleH1": true,
+      "mode": "float",
+      "pageTop": {
+        "showLevelIcon": false,
+        "level1Icon": "fa fa-hand-o-right",
+        "level2Icon": "fa fa-hand-o-right",
+        "level3Icon": "fa fa-hand-o-right"
+      }
+    }
+  }
+}
