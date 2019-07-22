@@ -387,6 +387,8 @@ const e1 = new Engineer('王五', h1)
 e1.getInfo();
 ```
 
+[本次代码 Github](https://github.com/ruizhengyun/design-pattern-note/tree/feature_v0.0.1_20190722)
+
 # 你可以...
 
 [下一篇：Javascript 设计模式之设计原则](./rule.md)

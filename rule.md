@@ -309,6 +309,8 @@ console.log('第3辆车离开');
 park.out(car3);
 ```
 
+[本次代码 Github](https://github.com/ruizhengyun/design-pattern-note/tree/feature_v0.0.1_20190722)
+
 # 你可以...
 
 [上一篇：Javascript 设计模式之面向对象与 UML 类图](./object_uml.md)
