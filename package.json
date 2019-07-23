@@ -1,9 +1,11 @@
 {
   "name": "notes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript 设计模式知识",
   "main": "index.js",
   "scripts": {
+    "gitbook:init": "gitbook init",
+    "gitbook:serve": "gitbook serve",
     "createDir": "mkdir ./notes/$npm_package_version && mkdir ./assets/$npm_package_version"
   },
   "keywords": [],
