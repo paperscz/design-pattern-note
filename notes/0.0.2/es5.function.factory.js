@@ -1,26 +1,36 @@
-// 工厂模式方法 es5
-function Repo(permissions){
-    if(this instanceof Repo){
-        return this[permissions](permissions);
+function FunctionFactory(role) {
+    if(!(['admin', 'developer'].indexOf(role) > -1)){
+        throw new Error('参数只能为 admin 或 developer');
     }
-    return new Repo();
+    
+    // 安全的工厂方法
+    if (this instanceof FunctionFactory) {
+        return this[role]();
+    }
+    return new FunctionFactory(role);
 }
-Repo.prototype.owner = function(permissions){
-    var permissions = ['set', 'del', 'move', 'manage', 'create', 'develop', 'commit', 'push', 'clone', 'issue', 'comment'];
-    var value = permissions.join(', ');
-    console.log(`\n 角色 ${permissions}       \n => ${value}`);
+FunctionFactory.prototype.show = function () {
+    var str = '是一个' + this.role + ', 权限：' + this.permissions.join(', ');
+    console.log(str)
 }
-Repo.prototype.developer = function(permissions){
-    var permissions = ['develop', 'commit', 'push', 'clone', 'issue', 'comment'];
-    var value = permissions.join(', ');
-    console.log(`\n 角色 ${permissions}       \n => ${value}`);
+FunctionFactory.prototype.say = function () {
+    var str = '是一个' + this.role + ', 权限：' + this.permissions.join(', ');
+    console.log(str)
 }
-Repo.prototype.guest = function(permissions){
-    var permissions = ['issue', 'comment'];
-    var value = permissions.join(', ');
-    console.log(`\n 角色 ${permissions}       \n => ${value}`);
+FunctionFactory.prototype.admin = function (permissions) {
+    this.role = '管理员';
+    this.permissions = ['设置', '删除', '新增', '创建', '开发', '推送', '提问', '评论'];
+}
+FunctionFactory.prototype.developer = function (permissions) {
+    this.role = '开发者';
+    this.permissions = ['开发', '推送', '提问', '评论'];
 }
 
-var owner = new Repo('owner');
-var developer = new Repo('developer');
-var guest = new Repo('guest');
+var xm = FunctionFactory('admin');
+xm.show();
+
+var xh = new FunctionFactory('developer');
+xh.show();
+
+var xl = new FunctionFactory('guest');
+xl.show();

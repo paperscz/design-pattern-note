@@ -1,49 +1,51 @@
-// 工厂模式方法
-class RepoBase { // 抽象类
-    constructor(permissions) {
-      console.log('new.target', new.target)
-        if (new.target === RepoBase) {
+class FunctionFactoryBase { // 抽象类
+    constructor(role) {
+        if (new.target === FunctionFactoryBase) {
             throw new Error('抽象类不能实例');
         }
-        this.permissions = permissions;
+        this.role = role;
     }
 }
 
-class Repo extends RepoBase { // 子类
-    constructor(permissions) {
-        super(permissions);
+class FunctionFactory extends FunctionFactoryBase { // 子类
+    constructor(role) {
+        super(role);
     }
 
-    create(role) {
+    static create(role) {
         switch (role) {
-            case 'owner':
-                return new Repo(['set', 'del', 'move', 'manage', 'create', 'develop', 'commit', 'push', 'clone', 'issue', 'comment']);
+            case 'admin':
+                return new FunctionFactory({
+                    role: '管理员',
+                    permissions: ['设置', '删除', '新增', '创建', '开发', '推送', '提问', '评论']
+                });
                 break;
             case 'developer':
-                return new Repo(['develop', 'commit', 'push', 'clone', 'issue', 'comment']);
-                break;
-            case 'guest':
-                return new Repo(['issue', 'comment']);
+                return new FunctionFactory({
+                    role: '开发者',
+                    permissions: ['开发', '推送', '提问', '评论']
+                });
                 break;
             default:
-                throw new Error('参数错误，可选参数：owner、developer、guest');
+                throw new Error('参数只能为 admin 或 developer');
         }
     }
 
-    showPermissions() {
-        const value = this.permissions.join(', ');
-        console.log(`\n 角色 ${this.permissions}       \n => ${value}`);
+    show() {
+        const { role, permissions } = this.role;
+        const str = `是一个${role}, 权限：${permissions.join(', ')}`;
+        console.log(str)
     }
 }
 
-let repoBase = new RepoBase(); // 此行会报错，注释后方可正常执行后面
-let repo = new Repo();
+// let xl = new FunctionFactoryBase(); // 此行会报错，注释后方可正常执行后面
 
-let owner = repo.create('owner');
-owner.showPermissions();
+let xm = FunctionFactory.create('admin');
+xm.show()
 
-let developer = repo.create('developer');
-developer.showPermissions();
+let xh = FunctionFactory.create('developer');
+xh.show()
 
-let guest = repo.create('guest');
-guest.showPermissions();
+let xl = FunctionFactory.create('guest');
+xl.show()
+
